@@ -23,4 +23,4 @@ class MainWindow:
         self.main_win.show()
 
     def leftscore(self):
-        self.ui
+        self.
