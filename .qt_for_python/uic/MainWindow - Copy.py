@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'x:\AAA Personal\Harrison\ScoreBoard\MainWindow.ui'
+# Form implementation generated from reading ui file 'x:\AAA Personal\Harrison\ScoreBoard\MainWindow - Copy.ui'
 #
 # Created by: PyQt6 UI code generator 6.3.0
 #
@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
         self.Timer.setDigitCount(4)
         self.Timer.setObjectName("Timer")
         self.LeftTeamNumber = QtWidgets.QLCDNumber(self.centralwidget)
-        self.LeftTeamNumber.setGeometry(QtCore.QRect(80, 148, 251, 131))
+        self.LeftTeamNumber.setGeometry(QtCore.QRect(170, 148, 91, 131))
         self.LeftTeamNumber.setStyleSheet("font: 50pt \"MS Shell Dlg 2\";")
         self.LeftTeamNumber.setLineWidth(0)
         self.LeftTeamNumber.setDigitCount(1)
@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
         self.Set_time.setGeometry(QtCore.QRect(460, 388, 75, 23))
         self.Set_time.setObjectName("Set_time")
         self.LeftTeamNumber_2 = QtWidgets.QLCDNumber(self.centralwidget)
-        self.LeftTeamNumber_2.setGeometry(QtCore.QRect(670, 148, 251, 131))
+        self.LeftTeamNumber_2.setGeometry(QtCore.QRect(740, 148, 91, 131))
         self.LeftTeamNumber_2.setStyleSheet("font: 50pt \"MS Shell Dlg 2\";")
         self.LeftTeamNumber_2.setLineWidth(0)
         self.LeftTeamNumber_2.setDigitCount(1)
@@ -79,16 +79,12 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.plainTextEdit.setFont(font)
         self.plainTextEdit.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-        self.plainTextEdit.setStyleSheet("background-color: rgb(0, 174, 239);")
-        self.plainTextEdit.setBackgroundVisible(False)
         self.plainTextEdit.setObjectName("plainTextEdit")
         self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEdit_2.setGeometry(QtCore.QRect(650, 80, 271, 61))
         font = QtGui.QFont()
         font.setPointSize(28)
         self.plainTextEdit_2.setFont(font)
-        self.plainTextEdit_2.setStyleSheet("background-color: rgb(186, 1, 78);")
-        self.plainTextEdit_2.setLineWrapMode(QtWidgets.QPlainTextEdit.LineWrapMode.WidgetWidth)
         self.plainTextEdit_2.setObjectName("plainTextEdit_2")
         self.timervalset_2 = QtWidgets.QSpinBox(self.centralwidget)
         self.timervalset_2.setGeometry(QtCore.QRect(100, 290, 51, 21))
@@ -161,7 +157,6 @@ class Ui_MainWindow(object):
         self.Set_time.setText(_translate("MainWindow", "Set Timer"))
         self.Left_Team_name_2.setText(_translate("MainWindow", "Team Name"))
         self.plainTextEdit.setPlainText(_translate("MainWindow", "Team Name"))
-        self.plainTextEdit_2.setPlainText(_translate("MainWindow", "Team Name"))
         self.pushButton.setText(_translate("MainWindow", "set"))
         self.pushButton_2.setText(_translate("MainWindow", "set"))
         self.pushButton_3.setText(_translate("MainWindow", "set"))
