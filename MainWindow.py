@@ -2,7 +2,7 @@ import imp
 import sys
 import time
 from PyQt6 import uic
-from Ui_scoreboard import Ui_MainWindow
+from Ui_scoreboard import *
 from PyQt6.QtWidgets import QApplication, QMainWindow
 from PyQt6.QtCore import QCoreApplication
 from PyQt6.QtGui import QPixmap

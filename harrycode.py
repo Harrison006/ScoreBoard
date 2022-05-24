@@ -68,7 +68,6 @@ class MainWindow:
         self.ui.pushButton_11.clicked.connect(self.reset_points)
         self.ui.pushButton_5.clicked.connect(self.reset_timer)
         #timer buttons
-       
         self.ui.pushButton_6.clicked.connect(self.pause_timer)
         self.ui.spinBox.valueChanged.connect(self.spin)
         self.ui.pushButton_3.clicked.connect(self.add)
@@ -255,8 +254,6 @@ class MainWindow:
             mins, secs = divmod(t, 60)
             timeformats = '{:02d}:{:02d}'.format(mins, secs)
             self.ui.Timer.setText(timeformats)
-        
-             
             f.close()
         MainWindow.thing += 1
 
@@ -280,7 +277,6 @@ class MainWindow:
         self.update_gui_2()
     def update_gui_2(self):
        t = self.time_left_int_2 
-     
        self.ui.count_start.setText(str(t))
 
 
