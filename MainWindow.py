@@ -3,7 +3,7 @@ import sys
 from PyQt6.QtWidgets import QApplication, QMainWindow
 from playsound import playsound
 from PyQt6 import QtCore, QtGui, QtWidgets
-from qt import UI_MainWindow
+from qt import *
 import time
 from PyQt6.QtGui import QPixmap
 import sys
