@@ -30,7 +30,6 @@ class MainWindow:
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.main_win)
         self.signals()
-        self.display_gallows()
 
     def show(self):
         self.main_win.show()
@@ -56,57 +55,42 @@ class MainWindow:
     #team 1 point
     def preset1_left(self):
         team1_point = MainWindow.team_1_point
-        point = self.ui.spinBox_2.value() 
+        point = self.ui.preset1Spin_left.value() 
         team1_point += int(point)
-        self.ui.pushButton_14.setText(str(team1_point) + " Points")
+        self.ui.LeftTeamNumber.setNumDigits(str(team1_point) + " Points")
         MainWindow.team_1_point += int(point)
     def preset2_left(self):
         team1_point = MainWindow.team_1_point
-        point = self.ui.spinBox_3.value() 
+        point = self.ui.preset2Spin_left.value() 
         team1_point += int(point)
-        self.ui.pushButton_14.setText(str(team1_point) + " Points")
+        self.ui.LeftTeamNumber.setNumDigits(str(team1_point) + " Points")
         MainWindow.team_1_point += int(point)
     def preset3_left(self):
         team1_point = MainWindow.team_1_point
-        point = self.ui.spinBox_4.value() 
+        point = self.ui.preset3Spin_left.value() 
         team1_point += int(point)
-        self.ui.pushButton_14.setText(str(team1_point) + " Points")
+        self.ui.LeftTeamNumber.setNumDigits(str(team1_point) + " Points")
         MainWindow.team_1_point += int(point)
-    def remove_point_button_1(self):
-        team1_point = MainWindow.team_1_point
-        team1_point -= 1
-        self.ui.pushButton_14.setText(str(team1_point) + " Points")
-        MainWindow.team_1_point -= 1
+
     #team 2 points
     def preset1_right(self):
         team2_point = MainWindow.team_2_point
-        point = self.ui.spinBox_2.value() 
+        point = self.ui.preset1spin_right.value() 
         team2_point += int(point)
-        self.ui.pushButton_15.setText(str(team2_point) + " Points")
+        self.ui.RightTeamNumber.setNumDigits(str(team2_point) + " Points")
         MainWindow.team_2_point += int(point)
     def preset2_right(self):
         team2_point = MainWindow.team_2_point
-        point = self.ui.spinBox_3.value() 
+        point = self.ui.preset2spin_right.value() 
         team2_point += int(point)
-        self.ui.pushButton_15.setText(str(team2_point) + " Points")
+        self.ui.RightTeamNumber.setNumDigits(str(team2_point) + " Points")
         MainWindow.team_2_point += int(point)
     def preset3_right(self):
         team2_point = MainWindow.team_2_point
-        point = self.ui.spinBox_4.value() 
+        point = self.ui.preset3spin_right.value() 
         team2_point += int(point)
-        self.ui.pushButton_15.setText(str(team2_point) + " Points")
+        self.ui.RightTeamNumber.setNumDigits(str(team2_point) + " Points")
         MainWindow.team_2_point += int(point)
-    def remove_point_button_2(self):
-        team2_point = MainWindow.team_2_point
-        team2_point -= 1
-        self.ui.pushButton_15.setText(str(team2_point) + " Points")
-        MainWindow.team_2_point -= 1
-    # reset scoreboard
-    def reset_points(self):
-        MainWindow.team_1_point = 0
-        MainWindow.team_2_point = 0
-        self.ui.pushButton_15.setText("0 Points")
-        self.ui.pushButton_14.setText("0 Points")
     #timer
     def add(self):
 
@@ -144,7 +128,7 @@ class MainWindow:
     
     def pause_timer(self):
         self.my_qtimer.stop()
-        self.ui.pushButton_3.setEnabled(True)
+        self.ui.Pause_timer.setEnabled(True)
     def spin(self):
         t = self.ui.spinBox.value()
         int_t = t*10
@@ -156,7 +140,7 @@ class MainWindow:
         self.time_left_int = display_timer
         if MainWindow.ver == 1:
             self.my_qtimer.stop()
-        self.ui.pushButton_3.setEnabled(True)
+        self.ui.Set_time.setEnabled(True)
     def reset_timer(self):
         self.my_qtimer.stop()
         t = self.ui.spinBox.value()
@@ -167,73 +151,7 @@ class MainWindow:
         timeformat = '{:02d}:{:02d}'.format(mins, secs)
         self.ui.Timer.setText(timeformat)
         self.time_left_int = display_timer
-        self.ui.pushButton_3.setEnabled(True)
-
-    #save data
-    def save_data(self):
-        team_1_name = self.ui.lineEdit.text()
-        team_2_name = self.ui.lineEdit_2.text()
-        team_1_points = MainWindow.team_1_point 
-        team_2_points = MainWindow.team_2_point 
-        final_time = self.time_left_int
-        final_name = (team_1_name + ", " + team_2_name)
-        
-        if MainWindow.thing > 0:
-            with open (final_name + '.txt', 'w') as f:
-                f.write(str(team_1_points))
-                f.write('\n')
-                f.write(str(team_2_points))
-                f.write('\n')
-                f.write(str(final_time))
-                f.close()
-        if main_win.thing == 0:
-            with open(final_name + '.txt', 'a') as f:
-                f.write(str(team_1_points))
-                f.write('\n')
-                f.write(str(team_2_points))
-                f.write('\n')
-                f.write(str(final_time))
-                f.close()
-
-    def load_data(self):
-        MainWindow.thing = 0
-        team_1_name = self.ui.lineEdit.text()
-        print(team_1_name)
-        team_2_name = self.ui.lineEdit_2.text()
-        print(team_2_name)
-        team_name = team_1_name.lower() + ", "+ team_2_name.lower()
-        print(team_name)
-
-        
-        
-        with open(team_name + ".txt", "r") as f:
-            MainWindow.team_1_point = int(f.readline())
-            print(MainWindow.team_1_point)
-            self.ui.pushButton_14.setText(str(MainWindow.team_1_point) + " Points")
-            MainWindow.team_2_point = int(f.readline())
-            self.ui.pushButton_15.setText(str(MainWindow.team_2_point) + " Points")
-            print(MainWindow.team_2_point)
-            self.time_left_int = int(f.readline() )
-            
-            print(self.time_left_int) 
-            t = self.time_left_int
-
-            mins, secs = divmod(t, 60)
-            timeformats = '{:02d}:{:02d}'.format(mins, secs)
-            self.ui.Timer.setText(timeformats)
-        
-             
-            f.close()
-        MainWindow.thing += 1
-
-    def update_gui(self):
-        times = self.time_left_int
-        mins, secs = divmod(times, 60)
-        timeformat = '{:02d}:{:02d}'.format(mins, secs)
-        print(timeformat, end='\r')
-        self.ui.Timer.setText(timeformat)
-
-
+        self.ui.Reset_timer.setEnabled(True)
     def timer_timeout_2(self):
     
         self.time_left_int_2 -= 1
