@@ -1,7 +1,6 @@
 import sys
 
 from PyQt6.QtWidgets import QApplication, QMainWindow
-from playsound import playsound
 from PyQt6 import QtCore, QtGui, QtWidgets
 from qt import *
 import time
@@ -30,18 +29,6 @@ class MainWindow:
         self.main_win = QMainWindow()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.main_win)
-        
-        
-        # Add a method with the timer
-
-        # Call start() method to modify the timer value
-
-        # Move the position of the window
-        
-        # Display the window
-        
-#initiilise the ui with starting variables
-
         self.signals()
         self.display_gallows()
 
@@ -53,51 +40,33 @@ class MainWindow:
         Connects the UI buttons to the corresponding functions (see slots)
         """
         #team 1 points
-        self.ui.pushButton_2.clicked.connect(self.point_btn_1)
-        self.ui.pushButton_7.clicked.connect(self.point_btn_2)
-        self.ui.pushButton_9.clicked.connect(self.point_btn_3)
-        self.ui.pushButton_13.clicked.connect(self.remove_point_button_1)
-        #team 2 points
-        self.ui.pushButton_4.clicked.connect(self.point_btn_4)
-        self.ui.pushButton_8.clicked.connect(self.point_btn_5)
-        self.ui.pushButton_10.clicked.connect(self.point_btn_6)
-        self.ui.pushButton_12.clicked.connect(self.remove_point_button_2)
-        #reset buttons
-        self.ui.pushButton_11.clicked.connect(self.reset_points)
-        self.ui.pushButton_5.clicked.connect(self.reset_timer)
+        self.ui.preset1_left.clicked.connect(self.preset1_left)
+        self.ui.preset2_left.clicked.connect(self.preset2_left)
+        self.ui.preset3_left.clicked.connect(self.preset3_left)
+        #team 2 points 
+        self.ui.preset1_right.clicked.connect(self.preset1_right)
+        self.ui.preset2_right.clicked.connect(self.preset2_right)
+        self.ui.preset3_right.clicked.connect(self.preset3_right)
         #timer buttons
-        self.ui.pushButton_6.clicked.connect(self.pause_timer)
-        self.ui.spinBox.valueChanged.connect(self.spin)
-        self.ui.pushButton_3.clicked.connect(self.add)
-        #save file
-        self.ui.label.clicked.connect(self.save_data)
-        self.ui.label_10.clicked.connect(self.load_data)
-        
+        self.ui.Pause_timer.clicked.connect(self.pause_timer)
+        #self.ui.Timer.valueChanged.connect(self.spin)
+        self.ui.Set_time.clicked.connect(self.add)
         #name change
         
-    # ----- slots ----- #
-    def display_gallows(self):
-        MBC_file_name = (f"./assests/MBBC.png")
-        
-        gallow = QPixmap(MBC_file_name)
-        self.ui.gallow_lb.setPixmap(gallow)
-        MBBC_file_name = (f"./assests/MBC.png")
-        gallow = QPixmap(MBBC_file_name)
-        self.ui.gallow_lb_2.setPixmap(gallow)
     #team 1 point
-    def point_btn_1(self):
+    def preset1_left(self):
         team1_point = MainWindow.team_1_point
         point = self.ui.spinBox_2.value() 
         team1_point += int(point)
         self.ui.pushButton_14.setText(str(team1_point) + " Points")
         MainWindow.team_1_point += int(point)
-    def point_btn_2(self):
+    def preset2_left(self):
         team1_point = MainWindow.team_1_point
         point = self.ui.spinBox_3.value() 
         team1_point += int(point)
         self.ui.pushButton_14.setText(str(team1_point) + " Points")
         MainWindow.team_1_point += int(point)
-    def point_btn_3(self):
+    def preset3_left(self):
         team1_point = MainWindow.team_1_point
         point = self.ui.spinBox_4.value() 
         team1_point += int(point)
@@ -109,19 +78,19 @@ class MainWindow:
         self.ui.pushButton_14.setText(str(team1_point) + " Points")
         MainWindow.team_1_point -= 1
     #team 2 points
-    def point_btn_4(self):
+    def preset1_right(self):
         team2_point = MainWindow.team_2_point
         point = self.ui.spinBox_2.value() 
         team2_point += int(point)
         self.ui.pushButton_15.setText(str(team2_point) + " Points")
         MainWindow.team_2_point += int(point)
-    def point_btn_5(self):
+    def preset2_right(self):
         team2_point = MainWindow.team_2_point
         point = self.ui.spinBox_3.value() 
         team2_point += int(point)
         self.ui.pushButton_15.setText(str(team2_point) + " Points")
         MainWindow.team_2_point += int(point)
-    def point_btn_6(self):
+    def preset3_right(self):
         team2_point = MainWindow.team_2_point
         point = self.ui.spinBox_4.value() 
         team2_point += int(point)
